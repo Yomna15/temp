@@ -1,122 +1,71 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-bom</artifactId>
-<version>4.2.2.RELEASE</version>
-<packaging>pom</packaging>
-<name>spring-security-bom</name>
-<description>spring-security-bom</description>
-<url>http://spring.io/spring-security</url>
-<organization>
-<name>spring.io</name>
-<url>http://spring.io/</url>
-</organization>
-<licenses>
-<license>
-<name>The Apache Software License, Version 2.0</name>
-<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-<distribution>repo</distribution>
-</license>
-</licenses>
-<developers>
-<developer>
-<id>rwinch</id>
-<name>Rob Winch</name>
-<email>rwinch@gopivotal.com</email>
-</developer>
-</developers>
-<scm>
-<connection>
-scm:git:git://github.com/spring-projects/spring-security
-</connection>
-<developerConnection>
-scm:git:git://github.com/spring-projects/spring-security
-</developerConnection>
-<url>https://github.com/spring-projects/spring-security</url>
-</scm>
-<build>
-<plugins>
-<plugin>
-<artifactId>maven-compiler-plugin</artifactId>
-<configuration>
-<source>1.7</source>
-<target>1.7</target>
-</configuration>
-</plugin>
-</plugins>
-</build>
-<dependencyManagement>
+  <modelVersion>4.0.0</modelVersion> 
+  <groupId>com.swe</groupId> 
+  <artifactId>SWE</artifactId> 
+  <version>0.0.1-SNAPSHOT</version> 
+  <packaging>jar</packaging> 
+ <parent>
+  <groupId>org.springframework.boot</groupId> 
+  <artifactId>spring-boot-starter-parent</artifactId> 
+  <version>1.5.2.RELEASE</version> 
+  </parent>
+  
 <dependencies>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-acl</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-aspects</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-cas</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-config</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-core</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-crypto</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-data</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-ldap</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-messaging</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-openid</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-remoting</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-taglibs</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-test</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-<dependency>
-<groupId>org.springframework.security</groupId>
-<artifactId>spring-security-web</artifactId>
-<version>4.2.2.RELEASE</version>
-</dependency>
-</dependencies>
-</dependencyManagement>
-</project>
+    
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        
+        
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+  
+        </dependencies>
+        
+              <build>
+        <finalName>funnylearning</finalName>
+        <plugins>
+        
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.3</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals><goal>copy</goal></goals>
+                    <configuration>
+                        <artifactItems>
+                            <artifactItem>
+                         <groupId>com.github.jsimone</groupId>
+                        <artifactId>webapp-runner</artifactId>
+                                <version>8.5</version>
+                     <destFileName>webapp-runner.jar</destFileName>
+                            </artifactItem>
+                        </artifactItems>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        </plugins>
+        </build>
+      
+  </project>
