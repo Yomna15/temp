@@ -9,6 +9,9 @@
   <artifactId>spring-boot-starter-parent</artifactId> 
   <version>1.5.2.RELEASE</version> 
   </parent>
+    <properties>
+   <maven.tomcat.url>http://localhost:8080/manager/text</maven.tomcat.url>
+</properties>
 <dependencies>
     
         <dependency>
@@ -66,7 +69,5 @@
         </plugin>
         </plugins>
         </build>
-        <properties>
-   <maven.tomcat.url>http://localhost:8080/manager/text</maven.tomcat.url>
-</properties>
+      
   </project>
